@@ -1,0 +1,48 @@
+--Q1: By Order Quantity, what were the five most popular products sold in 2014?
+
+--Include these data points in the output:
+
+--Order Date Year
+
+--Product ID
+
+--Product Name
+
+--Product Number
+
+--Product Color
+
+--Sales Order Count
+
+--Order Quantity
+
+--Sales Order Line total
+
+--ANSWER:
+
+--2014	870	Water Bottle - 30 oz.	WB-H098	NULL	2273	2902	12900.317660
+--2014	712	AWC Logo Cap	CA-1098	Multi	1267	1950	14430.970952
+--2014	711	Sport-100 Helmet, Blue	HL-U509-B	Blue	1221	1776	52353.591556
+--2014	873	Patch Kit/8 Patches	PK-7098	NULL	1608	1761	3850.406000
+--2014	707	Sport-100 Helmet, Red	HL-U509-R	Red	1231	1717	51697.665517
+
+SELECT TOP 5 YEAR(soh.OrderDate) AS OrderDate
+           , p.ProductID
+           , p.Name
+           , p.ProductNumber
+           , p.Color
+           , COUNT(sod.SalesOrderID) AS 'Sales Order Count'
+           , SUM(sod.OrderQty) AS 'Order Quantity'
+           , SUM(sod.LineTotal) AS 'Sales Order Line total'
+  FROM Sales.SalesOrderDetail AS sod
+       JOIN
+       Sales.SalesOrderHeader AS soh ON sod.SalesOrderID = soh.SalesOrderID
+       JOIN
+       Production.Product AS p ON sod.ProductID = p.ProductID
+ WHERE YEAR(soh.OrderDate) = 2014
+ GROUP BY YEAR(soh.OrderDate)
+        , p.ProductID
+        , p.Name
+        , p.ProductNumber
+        , p.Color
+ ORDER BY SUM(sod.OrderQty) DESC;

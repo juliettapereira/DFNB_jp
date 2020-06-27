@@ -12,14 +12,30 @@ Ver       Date         Author       Description
 
 
 RUNTIME: 
-1 min
+0 sec
 
 NOTES: 
 This view is used as the information source for the DFNB presentation 1.
 
 ******************************************************************************************************************/
 
-CREATE VIEW account_fact_dim
+USE [DFNB2];
+GO
+
+/****** Object:  View [dbo].[account_fact_dim]    Script Date: 6/27/2020 1:08:45 PM ******/
+
+DROP VIEW dbo.account_fact_dim;
+GO
+
+/****** Object:  View [dbo].[account_fact_dim]    Script Date: 6/27/2020 1:08:45 PM ******/
+
+SET ANSI_NULLS ON;
+GO
+
+SET QUOTED_IDENTIFIER ON;
+GO
+
+CREATE VIEW dbo.account_fact_dim
 AS
      SELECT DISTINCT 
             d.acct_id
@@ -34,3 +50,4 @@ AS
        FROM account_dim AS d
             LEFT JOIN
             account_fact AS af ON d.acct_id = af.acct_id;
+GO

@@ -26,132 +26,6 @@ GO
 
 IF EXISTS
 (
-    SELECT pk.* from 
-    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
-     WHERE pk.constraint_name = 'PK_tblaccount_dim'
-           AND table_name = 'account_dim'
-)
-
-    BEGIN
-
-        ALTER TABLE dbo.account_dim DROP CONSTRAINT PK_tblaccount_dim;
-
-END;
-
-IF EXISTS
-(
-    SELECT pk.* from 
-    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
-     WHERE pk.constraint_name = 'PK_tblaccount_fact'
-           AND table_name = 'account_fact'
-)
-
-    BEGIN
-
-        ALTER TABLE dbo.account_fact DROP CONSTRAINT PK_tblaccount_fact;
-
-END;
-
-IF EXISTS
-(
-    SELECT pk.* from 
-    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
-     WHERE pk.constraint_name = 'PK_tblbank_dim'
-           AND table_name = 'bank_dim'
-)
-
-    BEGIN
-
-        ALTER TABLE dbo.bank_dim DROP CONSTRAINT PK_tblbank_dim;
-
-END;
-
-IF EXISTS
-(
-    SELECT pk.* from 
-    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
-     WHERE pk.constraint_name = 'PK_tblbranch_dim'
-           AND table_name = 'branch_dim'
-)
-
-    BEGIN
-
-        ALTER TABLE dbo.branch_dim DROP CONSTRAINT PK_tblbranch_dim;
-
-END;
-
-IF EXISTS
-(
-    SELECT pk.* from 
-    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
-     WHERE pk.constraint_name = 'PK_tblcustomer_account_dim'
-           AND table_name = 'customer_account_dim'
-)
-
-    BEGIN
-
-        ALTER TABLE dbo.customer_account_dim DROP CONSTRAINT PK_tblcustomer_account_dim;
-
-END;
-
-IF EXISTS
-(
-    SELECT pk.* from 
-    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
-     WHERE pk.constraint_name = 'PK_tblcustomer_address_dim'
-           AND table_name = 'customer_address_dim'
-)
-
-    BEGIN
-
-        ALTER TABLE dbo.customer_address_dim DROP CONSTRAINT PK_tblcustomer_address_dim;
-
-END;
-
-IF EXISTS
-(
-    SELECT pk.* from 
-    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
-     WHERE pk.constraint_name = 'PK_tblcustomer_dim'
-           AND table_name = 'customer_dim'
-)
-
-    BEGIN
-
-        ALTER TABLE dbo.customer_dim DROP CONSTRAINT PK_tblcustomer_dim;
-
-END;
-
-IF EXISTS
-(
-    SELECT pk.* from 
-    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
-     WHERE pk.constraint_name = 'PK_tblcustomer_relationship_dim'
-           AND table_name = 'customer_relationship_dim'
-)
-
-    BEGIN
-
-        ALTER TABLE dbo.customer_relationship_dim DROP CONSTRAINT PK_tblcustomer_relationship_dim;
-
-END;
-
-IF EXISTS
-(
-    SELECT pk.* from 
-    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
-     WHERE pk.constraint_name = 'PK_tblproduct_dim'
-           AND table_name = 'product_dim'
-)
-
-    BEGIN
-
-        ALTER TABLE dbo.product_dim DROP CONSTRAINT PK_tblproduct_dim;
-
-END;
-
-IF EXISTS
-(
     SELECT fk.*
       FROM sys.foreign_keys AS fk
      WHERE fk.name = 'FK__tblaccount_dim_tblbranch_dim'
@@ -288,6 +162,190 @@ IF EXISTS
     BEGIN
 
         ALTER TABLE dbo.customer_address_dim DROP CONSTRAINT FK_tblcustomer_address_dim_tblbranch_dim;
+
+END;
+
+IF EXISTS
+(
+    SELECT fk.*
+      FROM sys.foreign_keys AS fk
+     WHERE fk.name = 'FK__tbltransaction_fact_tblbranch_dim'
+           AND parent_object_id = OBJECT_ID('dbo.transaction_fact')
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.transaction_fact DROP CONSTRAINT FK__tbltransaction_fact_tblbranch_dim;
+
+END;
+
+IF EXISTS
+(
+    SELECT fk.*
+      FROM sys.foreign_keys AS fk
+     WHERE fk.name = 'FK__tbltransaction_fact_tbltransaction_type_dim'
+           AND parent_object_id = OBJECT_ID('dbo.transaction_fact')
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.transaction_fact DROP CONSTRAINT FK__tbltransaction_fact_tbltransaction_type_dim;
+
+END;
+
+IF EXISTS
+(
+    SELECT pk.*
+      FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS pk
+     WHERE pk.constraint_name = 'PK_tbltransaction_type_dim'
+           AND table_name = 'transaction_type_dim'
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.transaction_type_dim DROP CONSTRAINT PK_tbltransaction_type_dim;
+
+END;
+
+IF EXISTS
+(
+    SELECT pk.*
+      FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS pk
+     WHERE pk.constraint_name = 'PK_tbltransaction_fact'
+           AND table_name = 'transaction_fact'
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.transaction_fact DROP CONSTRAINT PK_tbltransaction_fact;
+
+END;
+
+
+
+IF EXISTS
+(
+    SELECT pk.* from 
+    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
+     WHERE pk.constraint_name = 'PK_tblaccount_dim'
+           AND table_name = 'account_dim'
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.account_dim DROP CONSTRAINT PK_tblaccount_dim;
+
+END;
+
+IF EXISTS
+(
+    SELECT pk.* from 
+    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
+     WHERE pk.constraint_name = 'PK_tblaccount_fact'
+           AND table_name = 'account_fact'
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.account_fact DROP CONSTRAINT PK_tblaccount_fact;
+
+END;
+
+IF EXISTS
+(
+    SELECT pk.* from 
+    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
+     WHERE pk.constraint_name = 'PK_tblbank_dim'
+           AND table_name = 'bank_dim'
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.bank_dim DROP CONSTRAINT PK_tblbank_dim;
+
+END;
+
+IF EXISTS
+(
+    SELECT pk.* from 
+    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
+     WHERE pk.constraint_name = 'PK_tblbranch_dim'
+           AND table_name = 'branch_dim'
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.branch_dim DROP CONSTRAINT PK_tblbranch_dim;
+
+END;
+
+IF EXISTS
+(
+    SELECT pk.* from 
+    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
+     WHERE pk.constraint_name = 'PK_tblcustomer_account_dim'
+           AND table_name = 'customer_account_dim'
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.customer_account_dim DROP CONSTRAINT PK_tblcustomer_account_dim;
+
+END;
+
+IF EXISTS
+(
+    SELECT pk.* from 
+    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
+     WHERE pk.constraint_name = 'PK_tblcustomer_address_dim'
+           AND table_name = 'customer_address_dim'
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.customer_address_dim DROP CONSTRAINT PK_tblcustomer_address_dim;
+
+END;
+
+IF EXISTS
+(
+    SELECT pk.* from 
+    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
+     WHERE pk.constraint_name = 'PK_tblcustomer_dim'
+           AND table_name = 'customer_dim'
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.customer_dim DROP CONSTRAINT PK_tblcustomer_dim;
+
+END;
+
+IF EXISTS
+(
+    SELECT pk.* from 
+    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
+     WHERE pk.constraint_name = 'PK_tblcustomer_relationship_dim'
+           AND table_name = 'customer_relationship_dim'
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.customer_relationship_dim DROP CONSTRAINT PK_tblcustomer_relationship_dim;
+
+END;
+
+IF EXISTS
+(
+    SELECT pk.* from 
+    INFORMATION_SCHEMA.TABLE_CONSTRAINTS pk
+     WHERE pk.constraint_name = 'PK_tblproduct_dim'
+           AND table_name = 'product_dim'
+)
+
+    BEGIN
+
+        ALTER TABLE dbo.product_dim DROP CONSTRAINT PK_tblproduct_dim;
 
 END;
 
@@ -574,3 +632,16 @@ ADD CONSTRAINT FK_tblcustomer_address_dim_tblcustomer_dim FOREIGN KEY(cust_id) R
 
 ALTER TABLE dbo.customer_address_dim
 ADD CONSTRAINT FK_tblcustomer_address_dim_tblbranch_dim FOREIGN KEY(branch_id) REFERENCES dbo.branch_dim;
+
+ALTER TABLE dbo.transaction_type_dim
+ADD CONSTRAINT PK_tbltransaction_type_dim PRIMARY KEY(tran_type_id);
+
+ALTER TABLE dbo.transaction_fact
+ADD tran_id INT NOT NULL IDENTITY(1, 1)
+  , CONSTRAINT PK_tbltransaction_fact PRIMARY KEY CLUSTERED(tran_id);
+
+ALTER TABLE dbo.transaction_fact
+ADD CONSTRAINT FK__tbltransaction_fact_tblbranch_dim FOREIGN KEY(branch_id) REFERENCES dbo.branch_dim;
+
+ALTER TABLE dbo.transaction_fact
+ADD CONSTRAINT FK__tbltransaction_fact_tbltransaction_type_dim FOREIGN KEY(tran_type_id) REFERENCES dbo.transaction_type_dim;

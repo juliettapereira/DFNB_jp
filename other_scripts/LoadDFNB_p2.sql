@@ -114,6 +114,7 @@ SELECT DISTINCT
 --       ORDER BY tran_date DESC
 --              , tran_time DESC), 0) AS tran_id
 --     , sp2.acct_id
+--       sp2.acct_id
 --     , sp2.tran_date
 --     , sp2.tran_time
 --     , sp2.tran_type_id

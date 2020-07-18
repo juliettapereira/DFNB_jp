@@ -48,69 +48,91 @@ ALTER TABLE [dbo].[account_dim] DROP CONSTRAINT [FK__tblaccount_dim_tblproduct_d
 GO
 ALTER TABLE [dbo].[account_dim] DROP CONSTRAINT [FK__tblaccount_dim_tblbranch_dim]
 GO
-/****** Object:  Table [dbo].[product_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[product_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[product_dim]') AND type in (N'U'))
 DROP TABLE [dbo].[product_dim]
 GO
-/****** Object:  Table [dbo].[customer_relationship_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[customer_relationship_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[customer_relationship_dim]') AND type in (N'U'))
 DROP TABLE [dbo].[customer_relationship_dim]
 GO
-/****** Object:  Table [dbo].[customer_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[customer_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[customer_dim]') AND type in (N'U'))
 DROP TABLE [dbo].[customer_dim]
 GO
-/****** Object:  Table [dbo].[customer_address_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[customer_address_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[customer_address_dim]') AND type in (N'U'))
 DROP TABLE [dbo].[customer_address_dim]
 GO
-/****** Object:  Table [dbo].[customer_account_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[customer_account_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[customer_account_dim]') AND type in (N'U'))
 DROP TABLE [dbo].[customer_account_dim]
 GO
-/****** Object:  Table [dbo].[bank_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[bank_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[bank_dim]') AND type in (N'U'))
 DROP TABLE [dbo].[bank_dim]
 GO
-/****** Object:  View [dbo].[prod_date]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  View [dbo].[prod_date]    Script Date: 7/18/2020 5:22:56 PM ******/
 DROP VIEW [dbo].[prod_date]
 GO
-/****** Object:  View [dbo].[cust_rel_add]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  View [dbo].[cust_rel_add]    Script Date: 7/18/2020 5:22:56 PM ******/
 DROP VIEW [dbo].[cust_rel_add]
 GO
-/****** Object:  View [dbo].[transaction_fact_transaction_type]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  View [dbo].[transaction_fact_transaction_type]    Script Date: 7/18/2020 5:22:56 PM ******/
 DROP VIEW [dbo].[transaction_fact_transaction_type]
 GO
-/****** Object:  Table [dbo].[transaction_type_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[transaction_type_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[transaction_type_dim]') AND type in (N'U'))
 DROP TABLE [dbo].[transaction_type_dim]
 GO
-/****** Object:  View [dbo].[transaction_fact_branch]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  View [dbo].[transaction_fact_branch]    Script Date: 7/18/2020 5:22:56 PM ******/
 DROP VIEW [dbo].[transaction_fact_branch]
 GO
-/****** Object:  Table [dbo].[transaction_fact]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[transaction_fact]    Script Date: 7/18/2020 5:22:56 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[transaction_fact]') AND type in (N'U'))
 DROP TABLE [dbo].[transaction_fact]
 GO
-/****** Object:  View [dbo].[account_dim_branch]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  View [dbo].[account_dim_branch]    Script Date: 7/18/2020 5:22:56 PM ******/
 DROP VIEW [dbo].[account_dim_branch]
 GO
-/****** Object:  Table [dbo].[branch_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[branch_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[branch_dim]') AND type in (N'U'))
 DROP TABLE [dbo].[branch_dim]
 GO
-/****** Object:  View [dbo].[account_fact_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  View [dbo].[account_fact_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 DROP VIEW [dbo].[account_fact_dim]
 GO
-/****** Object:  Table [dbo].[account_fact]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[account_fact]    Script Date: 7/18/2020 5:22:56 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[account_fact]') AND type in (N'U'))
 DROP TABLE [dbo].[account_fact]
 GO
-/****** Object:  Table [dbo].[account_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  View [dbo].[loan_revenue_forecast_goal]    Script Date: 7/18/2020 5:22:56 PM ******/
+DROP VIEW [dbo].[loan_revenue_forecast_goal]
+GO
+/****** Object:  Table [dbo].[account_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[account_dim]') AND type in (N'U'))
 DROP TABLE [dbo].[account_dim]
 GO
-/****** Object:  Table [dbo].[account_dim]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  Table [dbo].[loan_revenue_forecast]    Script Date: 7/18/2020 5:22:56 PM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[loan_revenue_forecast]') AND type in (N'U'))
+DROP TABLE [dbo].[loan_revenue_forecast]
+GO
+/****** Object:  Table [dbo].[loan_revenue_forecast]    Script Date: 7/18/2020 5:22:56 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[loan_revenue_forecast](
+	[year] [int] NOT NULL,
+	[total_loan_amt] [decimal](15, 4) NOT NULL,
+	[calculation_indicator] [varchar](8) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[year] DESC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[account_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -129,7 +151,28 @@ CREATE TABLE [dbo].[account_dim](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[account_fact]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  View [dbo].[loan_revenue_forecast_goal]    Script Date: 7/18/2020 5:22:56 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[loan_revenue_forecast_goal]
+AS
+     SELECT l.year
+          , l.total_loan_amt AS total_loan_amt_estimate
+          , l.total_loan_amt + l.total_loan_amt * 0.02 AS total_loan_amt_goal
+          , SUM(a.loan_amt) AS current_loan_amt_revenue
+          , l.total_loan_amt + l.total_loan_amt * 0.02 - SUM(a.[loan_amt]) AS difference
+       FROM loan_revenue_forecast AS l
+            FULL JOIN
+            account_dim AS a ON l.year = YEAR(a.open_date)
+      WHERE YEAR(a.open_date) = '2019'
+      GROUP BY l.total_loan_amt
+             , l.total_loan_amt + l.total_loan_amt * 0.02
+             , l.year;
+GO
+/****** Object:  Table [dbo].[account_fact]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -147,7 +190,7 @@ CREATE TABLE [dbo].[account_fact](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[account_fact_dim]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  View [dbo].[account_fact_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -157,7 +200,7 @@ SELECT DISTINCT d.acct_id, as_of_date, cur_bal, open_date, close_date, open_clos
 FROM     account_dim d
 LEFT JOIN account_fact AS af ON d.acct_id = af.acct_id
 GO
-/****** Object:  Table [dbo].[branch_dim]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  Table [dbo].[branch_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -177,7 +220,7 @@ CREATE TABLE [dbo].[branch_dim](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[account_dim_branch]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  View [dbo].[account_dim_branch]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -203,7 +246,7 @@ AS
             LEFT JOIN
             branch_dim AS bd ON d.branch_id = bd.branch_id;
 GO
-/****** Object:  Table [dbo].[transaction_fact]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  Table [dbo].[transaction_fact]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -223,7 +266,7 @@ CREATE TABLE [dbo].[transaction_fact](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[transaction_fact_branch]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  View [dbo].[transaction_fact_branch]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -250,7 +293,7 @@ AS
             LEFT OUTER JOIN
             branch_dim AS bd ON t.branch_id = bd.branch_id;
 GO
-/****** Object:  Table [dbo].[transaction_type_dim]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  Table [dbo].[transaction_type_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -267,7 +310,7 @@ CREATE TABLE [dbo].[transaction_type_dim](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  View [dbo].[transaction_fact_transaction_type]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  View [dbo].[transaction_fact_transaction_type]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -292,7 +335,7 @@ AS
             LEFT OUTER JOIN
             transaction_type_dim AS ttd ON tf.tran_type_id = ttd.tran_type_id;
 GO
-/****** Object:  View [dbo].[cust_rel_add]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  View [dbo].[cust_rel_add]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -306,7 +349,7 @@ AS
           , dbo.stg_p1.cust_add_lon
        FROM dbo.stg_p1;
 GO
-/****** Object:  View [dbo].[prod_date]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  View [dbo].[prod_date]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -320,7 +363,7 @@ AS
             OR YEAR(sp.open_date) = 2017
             OR YEAR(sp.open_date) = 2018;
 GO
-/****** Object:  Table [dbo].[bank_dim]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  Table [dbo].[bank_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -334,7 +377,7 @@ CREATE TABLE [dbo].[bank_dim](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[customer_account_dim]    Script Date: 6/27/2020 10:54:31 PM ******/
+/****** Object:  Table [dbo].[customer_account_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -350,7 +393,7 @@ CREATE TABLE [dbo].[customer_account_dim](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[customer_address_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[customer_address_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -369,7 +412,7 @@ CREATE TABLE [dbo].[customer_address_dim](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[customer_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[customer_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -387,7 +430,7 @@ CREATE TABLE [dbo].[customer_dim](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[customer_relationship_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[customer_relationship_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -402,7 +445,7 @@ CREATE TABLE [dbo].[customer_relationship_dim](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[product_dim]    Script Date: 6/29/2020 5:57:58 PM ******/
+/****** Object:  Table [dbo].[product_dim]    Script Date: 7/18/2020 5:22:56 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

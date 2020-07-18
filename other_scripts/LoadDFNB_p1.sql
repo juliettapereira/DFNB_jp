@@ -637,8 +637,7 @@ ALTER TABLE dbo.transaction_type_dim
 ADD CONSTRAINT PK_tbltransaction_type_dim PRIMARY KEY(tran_type_id);
 
 ALTER TABLE dbo.transaction_fact
-ADD tran_id INT NOT NULL IDENTITY(1, 1)
-  , CONSTRAINT PK_tbltransaction_fact PRIMARY KEY CLUSTERED(tran_id);
+ADD CONSTRAINT PK_tbltransaction_fact PRIMARY KEY(tran_id);
 
 ALTER TABLE dbo.transaction_fact
 ADD CONSTRAINT FK__tbltransaction_fact_tblbranch_dim FOREIGN KEY(branch_id) REFERENCES dbo.branch_dim;
